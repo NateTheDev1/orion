@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "lib": ["es2022", "DOM"],
     "module": "commonjs",
     "target": "es2022",
     "declaration": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    "esModuleInterop": true
   },
-  "include": ["src"],
+  "include": ["src", "test.tsx"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
