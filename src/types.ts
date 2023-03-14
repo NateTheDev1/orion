@@ -13,3 +13,7 @@ export interface AudioEngineInterface {
   stop_sound: (source_id: number) => void;
   stop_all_sounds: () => void;
 }
+
+export interface OrionConfig {
+  audio_source_urls: string[];
+}
