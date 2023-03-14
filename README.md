@@ -38,3 +38,7 @@ const App = () => {
 ## Audio Engine
 
 The Orion audio engine provides useful methods to playing audio, music, fading, and caching sources. A list of audio sources you want to cache can be provided in the orion config property at the OrionEngine HOC.
+
+## Game Data Manager
+
+The Orion game data manager provides helpful tools to save data in JSON or base64 format. It also provides methods to create downloadable save files for your users.
