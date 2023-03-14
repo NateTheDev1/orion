@@ -1,7 +1,10 @@
 import React from 'react';
 import { Initialize } from '.';
 
-const OrionEngine = (props: { children: React.ReactNode; engine_state: React.Dispatch<React.SetStateAction<any>> }) => {
+export const OrionEngine = (props: {
+  children: React.ReactNode;
+  engine_state: React.Dispatch<React.SetStateAction<any>>;
+}) => {
   const [initialized, setInitialized] = React.useState(false);
 
   React.useEffect(() => {
@@ -14,5 +17,3 @@ const OrionEngine = (props: { children: React.ReactNode; engine_state: React.Dis
 
   return <>{props.children}</>;
 };
-
-export default OrionEngine;

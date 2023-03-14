@@ -1,10 +1,14 @@
 import { AudioEngine } from './audio';
-import { OrionEngine } from './types';
+import { OrionEngine as EngineType } from './types';
+
+// Exports
 
 export * from './types';
 
-export const Initialize = (): OrionEngine => {
+export const Initialize = (): EngineType => {
   return {
     audio: new AudioEngine(),
   };
 };
+
+export { OrionEngine } from './engine';
