@@ -1,12 +1,12 @@
 {
   "name": "orion-engine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and lightweight web based game development library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
