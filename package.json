@@ -2,7 +2,8 @@
   "name": "orion-engine",
   "version": "1.0.2",
   "description": "A simple and lightweight web based game development library",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
