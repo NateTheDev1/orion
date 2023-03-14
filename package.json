@@ -47,6 +47,6 @@
     "react": "^18.2.0"
   },
   "publishConfig": {
-    "@nrichardsdev:registry": "https://npm.pkg.github.com"
+    "@NateTheDev1:registry": "https://npm.pkg.github.com"
   }
 }
