@@ -27,6 +27,7 @@ export interface GameDataManagerInterface {
   load_game: () => any | null;
   get_raw: () => string;
   create_save_download: (format: 'json' | 'text') => string;
+  set_game_data: (data: any) => void;
 }
 
 export type GameSaveFormat = 'json' | 'base64';

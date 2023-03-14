@@ -56,7 +56,7 @@ export class GameDataManager implements GameDataManagerInterface {
    * Sets the game data manually.
    * @param data T of Game Data
    */
-  setGameData(data: any): void {
+  set_game_data(data: any): void {
     this._game_data = data;
   }
 
