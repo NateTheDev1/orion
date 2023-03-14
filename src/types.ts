@@ -1,5 +1,6 @@
 export interface OrionEngine {
   audio: AudioEngineInterface;
+  game_data: GameDataManagerInterface;
 }
 
 export interface AudioEngineInterface {
@@ -16,14 +17,16 @@ export interface AudioEngineInterface {
 
 export interface OrionConfig {
   audio_source_urls: string[];
+  game_uuid: string;
 }
 
-export interface GameDataManagerInterface<T> {
-  game_data: T | null;
+export interface GameDataManagerInterface {
+  game_data: any | null;
   uuid: string;
   save_game: () => void;
-  load_game: () => T | null;
+  load_game: () => any | null;
   get_raw: () => string;
+  create_save_download: (format: 'json' | 'text') => string;
 }
 
 export type GameSaveFormat = 'json' | 'base64';

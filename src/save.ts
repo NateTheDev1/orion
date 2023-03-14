@@ -1,8 +1,8 @@
 import { GameDataManagerInterface, GameSaveFormat } from './types';
 
-export class GameDataManager<T> implements GameDataManagerInterface<T> {
+export class GameDataManager implements GameDataManagerInterface {
   private _uuid: string;
-  private _game_data: T | null = null;
+  private _game_data: any | null = null;
   private _format: GameSaveFormat;
 
   /**
@@ -17,7 +17,7 @@ export class GameDataManager<T> implements GameDataManagerInterface<T> {
   /**
    * Gets the game data.
    */
-  get game_data(): T | null {
+  get game_data(): any | null {
     return this._game_data;
   }
 
@@ -44,7 +44,7 @@ export class GameDataManager<T> implements GameDataManagerInterface<T> {
    * Loads the game data from local storage.
    * @returns T of Game Data
    */
-  load_game(): T | null {
+  load_game(): any | null {
     if (this._format === 'json') {
       return JSON.parse(localStorage.getItem(this._uuid) || 'null');
     } else {
@@ -56,11 +56,29 @@ export class GameDataManager<T> implements GameDataManagerInterface<T> {
    * Sets the game data manually.
    * @param data T of Game Data
    */
-  setGameData(data: T): void {
+  setGameData(data: any): void {
     this._game_data = data;
   }
 
   get_raw(): string {
     return localStorage.getItem(this._uuid) || '';
+  }
+
+  create_save_download(format: 'json' | 'text'): string {
+    let url = '';
+
+    if (format === 'json') {
+      const new_data = JSON.stringify(this._game_data, null, 2);
+
+      const blob = new Blob([new_data], { type: 'application/json' });
+
+      url = window.URL.createObjectURL(blob);
+    } else {
+      const blob = new Blob([this._game_data as any], { type: 'text/plain' });
+
+      url = window.URL.createObjectURL(blob);
+    }
+
+    return url;
   }
 }
