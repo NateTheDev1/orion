@@ -1,5 +1,5 @@
 {
-  "name": "orion",
+  "name": "orion-engine",
   "version": "1.0.0",
   "description": "A simple and lightweight web based game development library",
   "main": "index.js",

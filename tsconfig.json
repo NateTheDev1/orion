@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "lib": ["es2022", "DOM"],
     "module": "commonjs",
+    "target": "es2022",
     "declaration": true,
     "outDir": "./lib",
     "strict": true
