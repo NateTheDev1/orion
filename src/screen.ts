@@ -15,14 +15,28 @@ export class Screen implements ScreenInterface {
     });
   }
 
+  /**
+   * Returns the screen width.
+   * @returns The screen width.
+   */
   public getScreenWidth(): number {
     return this._screenWidth;
   }
 
+  /**
+   * Returns the screen height.
+   * @returns The screen height.
+   */
   public getScreenHeight(): number {
     return this._screenHeight;
   }
 
+  /**
+   * Sets the screen resolution.
+   * @param width The width of the screen.
+   * @param height The height of the screen.
+   * @param fullscreen Whether to enter fullscreen mode or not.
+   */
   public setResolution(width: number, height: number, fullscreen: boolean): void {
     if (fullscreen) {
       document.documentElement.requestFullscreen();
@@ -34,6 +48,10 @@ export class Screen implements ScreenInterface {
     this._resizeCallbacks.forEach((callback) => callback());
   }
 
+  /**
+   * Registers a callback function to be called when the screen is resized.
+   * @param callback The callback function to be called when the screen is resized.
+   */
   public onResize(callback: () => void): void {
     this._resizeCallbacks.push(callback);
   }

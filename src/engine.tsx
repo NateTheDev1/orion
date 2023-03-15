@@ -3,6 +3,7 @@ import { AudioEngine } from './audio';
 import { Debugging } from './debug';
 import { InputManager } from './input';
 import { Localization } from './localization';
+import { MathUtility } from './math';
 import { Profiler } from './profiler';
 import { GameDataManager } from './save';
 import { Screen } from './screen';
@@ -19,6 +20,8 @@ const Initialize = (config: OrionConfig): EngineType => {
     localization: new Localization(config.default_language, config.translations),
     screen: new Screen(),
     profiler: new Profiler(config.use_fps_tracker_at_start),
+    //@ts-ignore
+    math: new MathUtility(), // class implements static methods and uses @staticImplements<MathInterface>() decorator
   };
 };
 

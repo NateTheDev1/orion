@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "jsx": "react-jsx",
     "lib": ["es2022", "DOM"],
     "module": "commonjs",

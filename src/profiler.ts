@@ -15,14 +15,26 @@ export class Profiler implements ProfilerInterface {
     }
   }
 
+  /**
+   * Starts the timer for a given name.
+   * @param name The name of the timer.
+   */
   public start(name: string): void {
     this.startTimeMap[name] = performance.now();
   }
 
+  /**
+   * Ends the timer for a given name.
+   * @param name The name of the timer.
+   */
   public end(name: string): void {
     this.endTimeMap[name] = performance.now();
   }
 
+  /**
+   * Generates a report of the time elapsed for each timer and the current FPS.
+   * @returns An object with the time elapsed for each timer and the current FPS.
+   */
   public get_report(): Record<string, number> {
     const report: Record<string, number> = {};
     for (const name in this.startTimeMap) {
@@ -34,6 +46,9 @@ export class Profiler implements ProfilerInterface {
     return report;
   }
 
+  /**
+   * Starts tracking the FPS.
+   */
   public start_fps_tracking(): void {
     const updateFps = () => {
       const timestamp = performance.now();
@@ -50,6 +65,10 @@ export class Profiler implements ProfilerInterface {
     this.fpsIntervalId = window.setInterval(updateFps, 16.67);
   }
 
+  /**
+   * Shows the FPS counter in the specified parent element.
+   * @param parentElement The element where the FPS counter will be shown.
+   */
   public show_fps_counter(parentElement: HTMLElement): void {
     if (!this.fpsElement) {
       this.fpsElement = document.createElement('div');
@@ -63,6 +82,9 @@ export class Profiler implements ProfilerInterface {
     }
   }
 
+  /**
+   * Hides the FPS counter.
+   */
   public hide_fps_counter(): void {
     if (this.fpsElement) {
       this.fpsElement.remove();
@@ -70,6 +92,9 @@ export class Profiler implements ProfilerInterface {
     }
   }
 
+  /**
+   * Disables the FPS counter and stops tracking the FPS.
+   */
   public disable_fps_counter(): void {
     if (this.fpsIntervalId) {
       clearInterval(this.fpsIntervalId);

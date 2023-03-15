@@ -35,7 +35,10 @@ export class Time implements TimeInterface {
     return this._current_time;
   }
 
-  start(): void {
+  /**
+   * Starts the time system.
+   */
+  public start(): void {
     this._is_running = true;
     this._last_time = performance.now();
     this._pause_time = 0;
@@ -45,21 +48,30 @@ export class Time implements TimeInterface {
     this._current_time = 0;
   }
 
-  pause(): void {
+  /**
+   * Pauses the time system.
+   */
+  public pause(): void {
     if (this._is_running) {
       this._is_running = false;
       this._pause_time = performance.now();
     }
   }
 
-  resume(): void {
+  /**
+   * Resumes the time system.
+   */
+  public resume(): void {
     if (!this._is_running) {
       this._is_running = true;
       this._last_time += performance.now() - this._pause_time;
     }
   }
 
-  update(): void {
+  /**
+   * Updates the time system.
+   */
+  public update(): void {
     if (!this._is_running) {
       return;
     }

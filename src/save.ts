@@ -60,10 +60,19 @@ export class GameDataManager implements GameDataManagerInterface {
     this._game_data = data;
   }
 
+  /**
+   * Retrieves the raw game data from localStorage.
+   * @returns The raw game data as a string.
+   */
   get_raw(): string {
     return localStorage.getItem(this._uuid) || '';
   }
 
+  /**
+   * Creates a download URL for the current game data in the specified format.
+   * @param format The format of the game data to download ('json' or 'text').
+   * @returns The download URL for the game data.
+   */
   create_save_download(format: 'json' | 'text'): string {
     let url = '';
 

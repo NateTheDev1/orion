@@ -1,3 +1,5 @@
+import { staticImplements } from './decorators/static_implements';
+
 export interface OrionEngine {
   audio: AudioEngineInterface;
   game_data: GameDataManagerInterface;
@@ -7,6 +9,8 @@ export interface OrionEngine {
   localization: LocalizationInterface;
   screen: ScreenInterface;
   profiler: ProfilerInterface;
+  //@ts-ignore
+  math: MathInterface; // class implements static methods and uses @staticImplements<MathInterface>() decorator
 }
 
 export interface TimeInterface {
@@ -214,4 +218,14 @@ export interface ProfilerInterface {
   show_fps_counter(parentElement: HTMLElement): void;
   hide_fps_counter(): void;
   disable_fps_counter(): void;
+}
+
+export interface MathInterface {
+  lerp(a: number, b: number, t: number): number;
+  clamp(value: number, min: number, max: number): number;
+  normalize(value: number, min: number, max: number): number;
+  random_range(min: number, max: number): number;
+  distance(x1: number, y1: number, x2: number, y2: number): number;
+  degrees_to_radians(degrees: number): number;
+  radians_to_degrees(radians: number): number;
 }
