@@ -25,11 +25,11 @@
   - [Methods](#methods-6)
   - [Properties](#properties-3)
 
-# About
+## About
 
 OrionEngine is a simple and lightweight web based game development library. It is not a full 'engine', however it contains useful tools to aid you in development. It is completely open-source and you can view more about it here on our [Github](https://github.com/NateTheDev1/orion)
 
-# How to install
+## How to install
 
 Typescript typings are already included with the build
 
@@ -108,6 +108,18 @@ The Orion `AudioEngine` provides useful methods to playing audio, music, fading,
 - The stop_sound method stops the sound with the given source_id index if it is valid.
 
 - The stop_all_sounds method stops all currently playing sounds by calling the stop method on each AudioBufferSourceNode in the \_sources array and then empties the array.
+
+- The set_pitch method sets the pitch of the sound with the given source ID.
+
+- The set_loop method enables or disables looping for the sound with the given source ID.
+
+- The apply_distortion method applies distortion effect to the sound with the given source ID.
+
+- The apply_reverb method applies reverb effect to the sound with the given source ID.
+
+- The apply_chorus method applies chorus effect to the sound with the given source ID.
+
+- The apply_equalizer method applies an equalizer effect to the sound with the given source ID.
 
 ## Game Data Manager
 
@@ -259,7 +271,7 @@ Gets the elapsed time since the time system was started.
 
 Gets the current time in milliseconds.
 
-# Screen
+## Screen
 
 The screen utility helps keep track of width, height, resolution, fullscreen options, and provides a simple callback for resizing.
 
@@ -281,7 +293,7 @@ Sets the screen resolution to the specified width and height. If fullscreen is t
 
 Registers a callback function to be called when the screen is resized. The callback function will receive no arguments.
 
-# Localization
+## Localization
 
 This code defines a Localization class that implements the LocalizationInterface. It allows for loading and translating string values for different languages.
 
@@ -306,3 +318,7 @@ sets the current language for translations.
 `current_language`
 
 Provides the current language in use
+
+## Profiler
+
+The profiler helps provide useful methods to track FPS and generate performance reports.

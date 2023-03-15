@@ -43,6 +43,12 @@ export interface AudioEngineInterface {
   fade_sound_after_delay: (source_id: number, duration: number) => void;
   stop_sound: (source_id: number) => void;
   stop_all_sounds: () => void;
+  set_pitch: (source_id: number, pitch: number) => void;
+  set_loop: (source_id: number, loop: boolean) => void;
+  apply_distortion: (source_id: number, amount: number) => void;
+  apply_reverb: (source_id: number, duration: number, decay: number) => void;
+  apply_chorus: (source_id: number, delay: number, depth: number, rate: number) => void;
+  apply_equalizer: (source_id: number, bands: number[]) => void;
 }
 
 export type KeyCode =
