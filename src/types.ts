@@ -2,6 +2,28 @@ export interface OrionEngine {
   audio: AudioEngineInterface;
   game_data: GameDataManagerInterface;
   input_manager: InputManagerInterface;
+  debug: DebugInterface;
+  time: TimeInterface;
+}
+
+export interface TimeInterface {
+  delta_time: number;
+  time_scale: number;
+  elapsed_time: number;
+  current_time: number;
+
+  start(): void;
+  pause(): void;
+  resume(): void;
+  update(): void;
+}
+
+export interface DebugInterface {
+  log: (message: string) => void;
+  warn: (message: string) => void;
+  error: (message: string) => void;
+  assert: (condition: boolean, message: string) => void;
+  generate_log_file: () => string;
 }
 
 export interface AudioEngineInterface {
@@ -144,6 +166,8 @@ export interface InputManagerInterface {
 export interface OrionConfig {
   audio_source_urls: string[];
   game_uuid: string;
+  save_logs: boolean;
+  start_game_time_on_create: boolean;
 }
 
 export interface GameDataManagerInterface {
