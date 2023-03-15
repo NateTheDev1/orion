@@ -4,6 +4,9 @@ export interface OrionEngine {
   input_manager: InputManagerInterface;
   debug: DebugInterface;
   time: TimeInterface;
+  localization: LocalizationInterface;
+  screen: ScreenInterface;
+  profiler: ProfilerInterface;
 }
 
 export interface TimeInterface {
@@ -168,6 +171,9 @@ export interface OrionConfig {
   game_uuid: string;
   save_logs: boolean;
   start_game_time_on_create: boolean;
+  default_language: string;
+  translations: Record<string, TranslationMap>;
+  use_fps_tracker_at_start: boolean;
 }
 
 export interface GameDataManagerInterface {
@@ -181,3 +187,31 @@ export interface GameDataManagerInterface {
 }
 
 export type GameSaveFormat = 'json' | 'base64';
+
+export type TranslationMap = {
+  [key: string]: string;
+};
+
+export interface LocalizationInterface {
+  current_language: string;
+  load_translations(language: string, translations: TranslationMap): void;
+  translate(key: string, language?: string): string;
+  set_current_language(language: string): void;
+}
+
+export interface ScreenInterface {
+  getScreenWidth(): number;
+  getScreenHeight(): number;
+  setResolution(width: number, height: number, fullscreen: boolean): void;
+  onResize(callback: () => void): void;
+}
+
+export interface ProfilerInterface {
+  start(name: string): void;
+  end(name: string): void;
+  get_report(): Record<string, number>;
+  start_fps_tracking(): void;
+  show_fps_counter(parentElement: HTMLElement): void;
+  hide_fps_counter(): void;
+  disable_fps_counter(): void;
+}

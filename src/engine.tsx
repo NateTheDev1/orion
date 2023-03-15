@@ -2,7 +2,10 @@ import React from 'react';
 import { AudioEngine } from './audio';
 import { Debugging } from './debug';
 import { InputManager } from './input';
+import { Localization } from './localization';
+import { Profiler } from './profiler';
 import { GameDataManager } from './save';
+import { Screen } from './screen';
 import { Time } from './time';
 import { OrionConfig, OrionEngine as EngineType } from './types';
 
@@ -13,6 +16,9 @@ const Initialize = (config: OrionConfig): EngineType => {
     input_manager: new InputManager(),
     debug: new Debugging(config.save_logs, config.game_uuid),
     time: new Time(config.start_game_time_on_create),
+    localization: new Localization(config.default_language, config.translations),
+    screen: new Screen(),
+    profiler: new Profiler(config.use_fps_tracker_at_start),
   };
 };
 
