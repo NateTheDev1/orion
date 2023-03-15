@@ -46,3 +46,11 @@ The Orion game data manager provides helpful tools to save data in JSON or base6
 ## Input Manager
 
 The input manager manages Key Down. Key Up events, KeyCodes, Mouse Button events, Mouse Position and other useful input methods.
+
+## Debugger
+
+The debugger provides useful methods to log data as well as save it to storage or download a log file in development.
+
+## Time
+
+The time value helps keep track of game time and provides useful methods for managing global time using delta time and helpful methods like pause and resume.
