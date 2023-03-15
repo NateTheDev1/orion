@@ -1,6 +1,7 @@
 export interface OrionEngine {
   audio: AudioEngineInterface;
   game_data: GameDataManagerInterface;
+  input_manager: InputManagerInterface;
 }
 
 export interface AudioEngineInterface {
@@ -13,6 +14,131 @@ export interface AudioEngineInterface {
   fade_sound_after_delay: (source_id: number, duration: number) => void;
   stop_sound: (source_id: number) => void;
   stop_all_sounds: () => void;
+}
+
+export type KeyCode =
+  | 'Backquote'
+  | 'Digit1'
+  | 'Digit2'
+  | 'Digit3'
+  | 'Digit4'
+  | 'Digit5'
+  | 'Digit6'
+  | 'Digit7'
+  | 'Digit8'
+  | 'Digit9'
+  | 'Digit0'
+  | 'Minus'
+  | 'Equal'
+  | 'Backspace'
+  | 'Tab'
+  | 'KeyQ'
+  | 'KeyW'
+  | 'KeyE'
+  | 'KeyR'
+  | 'KeyT'
+  | 'KeyY'
+  | 'KeyU'
+  | 'KeyI'
+  | 'KeyO'
+  | 'KeyP'
+  | 'BracketLeft'
+  | 'BracketRight'
+  | 'Backslash'
+  | 'CapsLock'
+  | 'KeyA'
+  | 'KeyS'
+  | 'KeyD'
+  | 'KeyF'
+  | 'KeyG'
+  | 'KeyH'
+  | 'KeyJ'
+  | 'KeyK'
+  | 'KeyL'
+  | 'Semicolon'
+  | 'Quote'
+  | 'Enter'
+  | 'ShiftLeft'
+  | 'KeyZ'
+  | 'KeyX'
+  | 'KeyC'
+  | 'KeyV'
+  | 'KeyB'
+  | 'KeyN'
+  | 'KeyM'
+  | 'Comma'
+  | 'Period'
+  | 'Slash'
+  | 'ShiftRight'
+  | 'ControlLeft'
+  | 'MetaLeft'
+  | 'AltLeft'
+  | 'Space'
+  | 'AltRight'
+  | 'MetaRight'
+  | 'ContextMenu'
+  | 'ControlRight'
+  | 'Insert'
+  | 'Home'
+  | 'PageUp'
+  | 'Delete'
+  | 'End'
+  | 'PageDown'
+  | 'ArrowUp'
+  | 'ArrowLeft'
+  | 'ArrowDown'
+  | 'ArrowRight'
+  | 'NumLock'
+  | 'NumpadDivide'
+  | 'NumpadMultiply'
+  | 'NumpadSubtract'
+  | 'Numpad7'
+  | 'Numpad8'
+  | 'Numpad9'
+  | 'NumpadAdd'
+  | 'Numpad4'
+  | 'Numpad5'
+  | 'Numpad6'
+  | 'Numpad1'
+  | 'Numpad2'
+  | 'Numpad3'
+  | 'Numpad0'
+  | 'NumpadDecimal'
+  | 'IntlBackslash'
+  | 'ContextMenu'
+  | 'F1'
+  | 'F2'
+  | 'F3'
+  | 'F4'
+  | 'F5'
+  | 'F6'
+  | 'F7'
+  | 'F8'
+  | 'F9'
+  | 'F10'
+  | 'F11'
+  | 'F12'
+  | 'AudioVolumeMute'
+  | 'AudioVolumeDown'
+  | 'AudioVolumeUp'
+  | 'MediaTrackPrevious'
+  | 'MediaTrackNext'
+  | 'MediaStop'
+  | 'MediaPlayPause'
+  | 'NumpadEqual'
+  | 'IntlYen';
+
+export type MouseButton = 'Left' | 'Middle' | 'Right';
+
+export interface InputManagerInterface {
+  keys_down: { [key in KeyCode]: boolean };
+  mouse_position: { x: number; y: number };
+  mouse_buttons_down: { [key in MouseButton]: boolean };
+  is_key_down: (key_code: KeyCode) => boolean;
+  is_mouse_button_down: (button: MouseButton) => boolean;
+  get_key_code_from_string: (key: string) => KeyCode | null;
+  get_mouse_button_from_number: (button: number) => MouseButton | null;
+  listen_key_up: (key: KeyCode, callback: (key_code: KeyCode) => void) => void;
 }
 
 export interface OrionConfig {

@@ -42,3 +42,7 @@ The Orion audio engine provides useful methods to playing audio, music, fading, 
 ## Game Data Manager
 
 The Orion game data manager provides helpful tools to save data in JSON or base64 format. It also provides methods to create downloadable save files for your users.
+
+## Input Manager
+
+The input manager manages Key Down. Key Up events, KeyCodes, Mouse Button events, Mouse Position and other useful input methods.

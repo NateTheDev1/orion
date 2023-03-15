@@ -1,5 +1,6 @@
 import React from 'react';
 import { AudioEngine } from './audio';
+import { InputManager } from './input';
 import { GameDataManager } from './save';
 import { OrionConfig, OrionEngine as EngineType } from './types';
 
@@ -7,6 +8,7 @@ const Initialize = (config: OrionConfig): EngineType => {
   return {
     audio: new AudioEngine(config.audio_source_urls),
     game_data: new GameDataManager(config.game_uuid),
+    input_manager: new InputManager(),
   };
 };
 
