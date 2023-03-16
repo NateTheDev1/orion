@@ -86,6 +86,40 @@ return (
 );
 ```
 
+`useAnimator`
+
+This returns an object with animator functions.
+
+> Current animation options are as follows:
+
+```tsx
+export type AnimatorMethods = {
+  fadeIn: (element: HTMLElement, duration?: number, easing?: string) => void;
+  fadeOut: (element: HTMLElement, duration?: number, easing?: string) => void;
+  slideIn: (element: HTMLElement, direction?: string, distance?: string, duration?: number, easing?: string) => void;
+  slideOut: (element: HTMLElement, direction?: string, distance?: string, duration?: number, easing?: string) => void;
+  zoomIn: (element: HTMLElement, duration?: number, easing?: string) => void;
+  zoomOut: (element: HTMLElement, duration?: number, easing?: string) => void;
+};
+```
+
+```tsx
+import useAnimator from './useAnimator';
+
+const MyComponent = () => {
+  const { fadeIn } = useAnimator();
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    if (elementRef.current) {
+      fadeIn(elementRef.current, 500);
+    }
+  }, [fadeIn]);
+
+  return <div ref={elementRef}>Hello World</div>;
+};
+```
+
 The hook takes two arguments:
 
 `initialLanguage: string`: the default language to use for translations.
@@ -323,3 +357,35 @@ Provides the current language in use
 ## Profiler
 
 The profiler helps provide useful methods to track FPS and generate performance reports.
+
+## Math
+
+`MathUtility` is a utility class that provides a collection of static methods for common mathematical operations.
+
+### Methods
+
+`lerp(a: number, b: number, t: number): number`
+
+Linearly interpolates between two values a and b using a value t between 0 and 1.
+
+`clamp(value: number, min: number, max: number): number`
+
+Clamps a value between a minimum value and a maximum value.
+
+`normalize(value: number, min: number, max: number): number`
+
+Normalizes a value between a minimum value and a maximum value.
+
+`random_range(min: number, max: number): number`
+
+Generates a random number between a minimum value and a maximum value.
+
+`distance(x1: number, y1: number, x2: number, y2: number): number`
+
+Calculates the distance between two points.
+
+`degrees_to_radians(degrees: number): number`
+
+Converts an angle in degrees to radians.
+
+`radians_to_degrees(radians: number): number`

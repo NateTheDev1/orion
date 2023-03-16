@@ -235,3 +235,27 @@ export interface MathInterface {
   degrees_to_radians(degrees: number): number;
   radians_to_degrees(radians: number): number;
 }
+
+export interface AnimatorInterface {
+  fade_in: (element: HTMLElement, duration?: number, easing?: string) => void;
+  fade_out: (element: HTMLElement, duration?: number, easing?: string) => void;
+  slide_in: (element: HTMLElement, direction?: string, distance?: string, duration?: number, easing?: string) => void;
+  slide_out: (element: HTMLElement, direction?: string, distance?: string, duration?: number, easing?: string) => void;
+  zoom_in: (element: HTMLElement, duration?: number, easing?: string) => void;
+  zoom_out: (element: HTMLElement, duration?: number, easing?: string) => void;
+  slide_and_fade_in: (
+    element: HTMLElement,
+    direction?: string,
+    distance?: string,
+    duration?: number,
+    easing?: string,
+  ) => void;
+  slide_and_fade_out: (
+    element: HTMLElement,
+    direction?: string,
+    distance?: string,
+    duration?: number,
+    easing?: string,
+  ) => void;
+  shake: (element: HTMLElement, duration?: number, easing?: string) => void;
+}
