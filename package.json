@@ -1,6 +1,6 @@
 {
   "name": "orion-engine",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "A simple and lightweight web based game development library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
