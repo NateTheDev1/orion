@@ -25,6 +25,8 @@
   - [Methods](#methods-6)
   - [Properties](#properties-3)
 - [Profiler](#profiler)
+- [Math](#math)
+  - [Methods](#methods-7)
 
 ## About
 
